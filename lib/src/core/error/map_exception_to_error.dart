@@ -1,10 +1,14 @@
+import 'dart:developer';
 import 'dart:io';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'exceptions.dart';
 import 'failure.dart';
 import 'failure_codes.dart';
 
 Failure mapExceptionToFailure(Object? e) {
+  log("\n\n map exception :: $e \n\n");
   if (e is SocketException) {
     return Failure(
       message: e.message,
@@ -23,6 +27,13 @@ Failure mapExceptionToFailure(Object? e) {
     return Failure(
       message: e.message.toString(),
       code: FailureCodes.ASSERTION_ERROR,
+    );
+  }
+
+  if (e is FirebaseException) {
+    return Failure(
+      message: e.message ?? e.code,
+      code: e.code,
     );
   }
 

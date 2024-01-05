@@ -8,5 +8,6 @@ class AuthState with _$AuthState {
 
   const factory AuthState.authenticated(UserEntity user) = _Authenticated;
 
-  const factory AuthState.unauthenticated([Failure? failure]) = _Unauthenticated;
+  const factory AuthState.unauthenticated([Failure? failure]) =
+      _Unauthenticated;
 }

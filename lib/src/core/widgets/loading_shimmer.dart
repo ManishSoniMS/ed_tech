@@ -4,7 +4,6 @@ import 'package:shimmer/shimmer.dart';
 import '../config/app_config.dart';
 import '../constants/constraints/app_constraints.dart';
 
-
 /// {@template loading_shimmer}
 /// A shimmering widget that displays a loading indicator.
 /// {@endtemplate}
@@ -28,10 +27,10 @@ class LoadingShimmer extends StatelessWidget {
       child: !hasRoundedCorners
           ? const Material()
           : const Material(
-        borderRadius: BorderRadius.all(
-          Radius.circular(AppConstraints.medium),
-        ),
-      ),
+              borderRadius: BorderRadius.all(
+                Radius.circular(AppConstraints.medium),
+              ),
+            ),
     );
   }
 }

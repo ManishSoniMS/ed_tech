@@ -12,7 +12,7 @@ class KeyDetailsWidget extends StatelessWidget {
   });
 
   final KeyDetailType type;
-  final String text;
+  final List<String> text;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +33,7 @@ class KeyDetailsWidget extends StatelessWidget {
         style: textTheme.bodyMedium,
       ),
       subtitle: Text(
-        text,
+        subTitle(),
         style: textTheme.bodyLarge,
       ),
     );
@@ -64,6 +64,21 @@ class KeyDetailsWidget extends StatelessWidget {
         return "Language";
       case KeyDetailType.validity:
         return "Validity";
+      default:
+        return "";
+    }
+  }
+
+  String subTitle() {
+    switch (type) {
+      case KeyDetailType.duration:
+        return text.first;
+      case KeyDetailType.type:
+        return text.join(" + ");
+      case KeyDetailType.language:
+        return text.join(" | ");
+      case KeyDetailType.validity:
+        return text.first;
       default:
         return "";
     }

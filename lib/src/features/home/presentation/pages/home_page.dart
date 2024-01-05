@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../routes/routes.dart';
 import 'feeds_page.dart';
 import '../../../profile/presentation/pages/profile_page.dart';
 
@@ -10,12 +9,6 @@ class HomePage extends StatefulWidget {
     this.index = 0,
   });
   final int index;
-  static Route route({int index = 0}) {
-    return MaterialPageRoute(
-      settings: const RouteSettings(name: Routes.home),
-      builder: (context) => HomePage(index: index),
-    );
-  }
 
   @override
   State<HomePage> createState() => _HomePageState();

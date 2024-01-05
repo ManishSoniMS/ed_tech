@@ -11,20 +11,32 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.2
+
+  # firebase
   firebase_core: ^2.24.2
-  cloud_firestore: ^4.14.0
-  gap: ^3.0.1
-  intl: ^0.19.0
-  google_fonts: ^6.1.0
-  equatable: ^2.0.5
   firebase_auth: ^4.16.0
+  cloud_firestore: ^4.14.0
+
+  gap: ^3.0.1
+  # fonts
+  google_fonts: ^6.1.0
+
+  equatable: ^2.0.5
+  # dependency injection
   get_it: ^7.6.4
   injectable: ^2.3.2
+
   dartz: ^0.10.1
   flutter_gen: ^5.4.0
+  # state management
   flutter_bloc: ^8.1.1
+
   shimmer: ^3.0.0
   cached_network_image: ^3.3.1
+
+  # routing
+  go_router: ^13.0.1
+  intl: ^0.19.0
 
 dev_dependencies:
   flutter_test:
@@ -32,10 +44,9 @@ dev_dependencies:
   flutter_lints: ^2.0.0
   build_runner: ^2.4.7
   freezed: ^2.4.6
-
+  injectable_generator: ^2.4.1
 
 flutter:
-
   uses-material-design: true
   generate: true
 

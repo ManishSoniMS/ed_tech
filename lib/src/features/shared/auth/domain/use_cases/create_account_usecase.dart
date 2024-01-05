@@ -13,7 +13,6 @@ class CreateAccountUsecase extends IUseCase<UserEntity, SignUpDTO> {
   }) : _repository = repository;
 
   final AuthRepository _repository;
-
   @override
   FailureOr<UserEntity> call(SignUpDTO param) async {
     return await _repository.createAccount(param);

@@ -2,20 +2,20 @@ class Routes {
   Routes._();
 
   /// Splash page route "/"
-  static const String splash = "/";
+  static String get splash => "/";
 
   /// Login page route "/login"
-  static const String login = "/login";
+  static String get login => "/login";
 
   /// SignUp page route "/signup"
-  static const String signup = "/signup";
+  static String get signup => "/signup";
 
   /// Not found route `/not_found`
-  static const String notFound = '/not_found';
+  static String get notFound => '/not_found';
 
   /// Home page route "/home
-  static const String home = "/home";
+  static String get home => "/home";
 
-  /// Course page route "/home/course"
-  static const String course = "/home/course";
+  /// Course page route "/home/course/:id"
+  static String course(String id) => "/home/course/$id";
 }

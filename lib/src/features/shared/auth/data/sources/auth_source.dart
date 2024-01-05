@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:injectable/injectable.dart';
 
+import '../../../../../core/constants/constraints/collection_name.dart';
 import '../../../../../core/error/exceptions.dart';
 import '../../../../../core/error/failure_codes.dart';
 import '../../domain/dtos/login_dto.dart';
@@ -29,7 +30,8 @@ class AuthSourceImpl extends AuthSource {
   Future<UserEntity> isUserLoggedIn() async {
     final user = _auth.currentUser;
     if (user != null) {
-      final result = await _db.collection("users").doc(user.uid).get();
+      final result =
+          await _db.collection(CollectionName.users).doc(user.uid).get();
       return UserEntity.fromMap({
         "id": result.id,
         ...result.data()!,
@@ -48,7 +50,8 @@ class AuthSourceImpl extends AuthSource {
 
     final user = userCredentials.user;
     if (user != null) {
-      final result = await _db.collection("users").doc(user.uid).get();
+      final result =
+          await _db.collection(CollectionName.users).doc(user.uid).get();
       return UserEntity.fromMap({
         "id": result.id,
         ...result.data()!,
@@ -67,7 +70,7 @@ class AuthSourceImpl extends AuthSource {
 
     final user = userCredentials.user;
     if (user != null) {
-      await _db.collection("users").doc(user.uid).set(dto.toMap());
+      await _db.collection(CollectionName.users).doc(user.uid).set(dto.toMap());
       return UserEntity(
           id: user.uid,
           name: dto.name,
