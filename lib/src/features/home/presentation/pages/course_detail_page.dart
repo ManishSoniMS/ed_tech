@@ -32,6 +32,7 @@ class CourseDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = ScrollController();
+    final size = MediaQuery.sizeOf(context);
     return WillPopScope(
       onWillPop: () async {
         return false;
@@ -116,6 +117,40 @@ class CourseDetailPage extends StatelessWidget {
               ),
             ],
           ),
+          bottomNavigationBar:SafeArea(child:  BottomAppBar(
+            child: Row(
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Total Price",
+                      style: textTheme.bodyMedium?.copyWith(color: Colors.grey),
+                    ),
+                    Text(
+                      "₹ 4500",
+                      style: textTheme.titleLarge,
+                    ),
+                  ],
+                ),const
+                Spacer(),
+                SizedBox(
+                  height: AppConstraints.textFieldHeight,
+                  width: size.width * 0.5,
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(backgroundColor:const Color(0xFF313275),),
+                    child: Text(
+                      "Buy Now",
+                      style: textTheme.titleMedium?.copyWith(
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),),
         ),
       ),
     );
