@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1041498706543",
+    "project_id": "ed-tech-dd4b1",
+    "storage_bucket": "ed-tech-dd4b1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1041498706543:android:14b53702ee92efc3e2b39a",
+        "android_client_info": {
+          "package_name": "com.manishsoni.ed_tech"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAxEz5ZVbHfX6_vTPYuEq1n1mpmneBNTl0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1041498706543:android:45c33b9cee1a9f9ae2b39a",
+        "android_client_info": {
+          "package_name": "com.manishsoni.edtech"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAxEz5ZVbHfX6_vTPYuEq1n1mpmneBNTl0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
