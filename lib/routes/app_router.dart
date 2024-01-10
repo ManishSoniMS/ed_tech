@@ -1,39 +1,50 @@
-import 'dart:developer';
-
-import 'package:flutter/cupertino.dart';
+import 'package:go_router/go_router.dart';
 
 import '../src/features/home/presentation/pages/course_detail_page.dart';
 import '../src/features/home/presentation/pages/home_page.dart';
 import '../src/features/shared/auth/presentation/pages/login_page.dart';
 import '../src/features/shared/auth/presentation/pages/signup_page.dart';
-import '../src/features/shared/error/presentation/pages/not_found_page.dart';
 import '../src/features/splash/presentation/pages/splash_page.dart';
-import 'routes.dart';
 
 class AppRouter {
-  AppRouter._();
+  static final AppRouter _instance = AppRouter._();
 
-  static Route onGenerateRoute(RouteSettings settings) {
-    final arg = settings.arguments;
-    log("\n\n on generate route arg == $arg \n\n");
-    switch (settings.name) {
-      case Routes.splash:
-        return SplashPage.route();
+  static AppRouter get instance => _instance;
 
-      case Routes.login:
-        return LoginPage.route();
+  late GoRouter _router;
 
-      case Routes.signup:
-        return SignUpPage.route();
+  GoRouter get router => _router;
 
-      case Routes.home:
-        return HomePage.route();
-
-      case Routes.course:
-        return CourseDetailPage.route("dcd");
-
-      default:
-        return NotFoundPage.route();
-    }
+  AppRouter._() {
+    _router = GoRouter(
+      routes: [
+        GoRoute(
+          path: "/",
+          name: "Splash Page",
+          builder: (context, state) => const SplashPage(),
+        ),
+        GoRoute(
+          path: "/login",
+          name: "LogIn Page",
+          builder: (context, state) => const LoginPage(),
+        ),
+        GoRoute(
+          path: "/signup",
+          name: "SignUp Page",
+          builder: (context, state) => const SignUpPage(),
+        ),
+        GoRoute(
+          path: "/home",
+          name: "Home Page",
+          builder: (context, state) => const HomePage(),
+        ),
+        GoRoute(
+          path: "/home/course/:id",
+          name: "Course Detail Page",
+          builder: (context, state) =>
+              CourseDetailPage(id: state.pathParameters["id"]!),
+        ),
+      ],
+    );
   }
 }

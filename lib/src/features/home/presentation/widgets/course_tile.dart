@@ -3,17 +3,18 @@ import 'package:gap/gap.dart';
 
 import '../../../../core/config/app_config.dart';
 import '../../../../core/constants/constraints/app_constraints.dart';
-import '../../../../core/constants/constraints/placeholder_images.dart';
 import '../../../../core/widgets/custom_image.dart';
 
 class CourseTileWidget extends StatelessWidget {
   const CourseTileWidget({
     super.key,
-    required this.id,
+    required this.img,
+    required this.title,
     this.onTap,
   });
 
-  final String id;
+  final String img;
+  final String title;
   final VoidCallback? onTap;
 
   @override
@@ -32,7 +33,7 @@ class CourseTileWidget extends StatelessWidget {
                 padding: const EdgeInsets.all(10.0),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(25.0),
-                  child: CustomImage(path: PlaceHolderImg.courseThumbnail),
+                  child: CustomImage(path: img),
                 ),
               ),
             ),
@@ -40,7 +41,7 @@ class CourseTileWidget extends StatelessWidget {
               padding:
                   const EdgeInsets.symmetric(horizontal: AppConstraints.large),
               child: Text(
-                "SSC CGL Mains 2023",
+                title,
                 style: textTheme.titleLarge,
               ),
             ),

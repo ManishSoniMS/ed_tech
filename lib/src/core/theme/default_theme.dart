@@ -5,10 +5,18 @@ import 'package:google_fonts/google_fonts.dart';
 
 class DefaultTheme {
   DefaultTheme._() {
-    final ColorScheme _lightColorScheme = ColorScheme.fromSeed(
-      seedColor: const Color(0xFF313275),
-      background: const Color(0xFFF8F8F8),
-      secondary: const Color(0xFF1676FF),
+    const ColorScheme _lightColorScheme = ColorScheme(
+      background: Color(0xFFF8F8F8),
+      brightness: Brightness.light,
+      primary: Color(0xFF313275),
+      onPrimary: Colors.white,
+      secondary: Color(0xFF1676FF),
+      onSecondary: Colors.white,
+      error: Colors.red,
+      onError: Colors.white,
+      onBackground: Colors.black,
+      surface: Colors.white,
+      onSurface: Colors.black,
     );
 
     final TextTheme _textTheme = TextTheme(

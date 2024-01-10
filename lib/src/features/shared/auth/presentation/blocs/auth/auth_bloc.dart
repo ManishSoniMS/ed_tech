@@ -33,7 +33,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final IsUserLoggedInUsecase _isUserLoggedIn;
   final LoginUsecase _login;
   final CreateAccountUsecase _createAccount;
-
   final SignOutUsecase _signOut;
 
   Future<void> _onStart(_Started event, Emitter<AuthState> emit) async {

@@ -3,7 +3,6 @@ import 'package:gap/gap.dart';
 
 import '../../../../core/config/app_config.dart';
 import '../../../../core/constants/constraints/app_constraints.dart';
-import '../../../../core/constants/constraints/placeholder_images.dart';
 import '../../../../core/widgets/custom_image.dart';
 
 class EducatorBasicDetailsTile extends StatelessWidget {
@@ -11,11 +10,16 @@ class EducatorBasicDetailsTile extends StatelessWidget {
     super.key,
     this.index,
     this.length,
+    required this.img,
+    required this.name,
+    required this.subject,
   });
 
   final int? index;
   final int? length;
-
+  final String img;
+  final String name;
+  final String subject;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -29,15 +33,15 @@ class EducatorBasicDetailsTile extends StatelessWidget {
               width: 90.0,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(15.0),
-                child: CustomImage(path: PlaceHolderImg.instructor),
+                child: CustomImage(path: img),
               ),
             ),
             Text(
-              "Khan Sir",
+              name,
               style: textTheme.bodyLarge,
             ),
             Text(
-              "GK/GS",
+              subject,
               style: textTheme.bodySmall,
             ),
           ],

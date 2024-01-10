@@ -1,12 +1,14 @@
-import 'package:edtech/src/core/constants/constraints/placeholder_images.dart';
+import 'package:edtech/src/features/home/domain/entities/course.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 
-import '../../../../../routes/routes.dart';
 import '../../../../core/config/app_config.dart';
 import '../../../../core/constants/constraints/app_constraints.dart';
 import '../../../../core/constants/enum/enum.dart';
 import '../../../../core/widgets/custom_image.dart';
+import '../../domain/entities/teachers.dart';
+import '../blocs/course_detail_cubit/course_detail_cubit.dart';
 import '../widgets/classroom_tile.dart';
 import '../widgets/course_description_widget.dart';
 import '../widgets/educator_basic_details_tile.dart';
@@ -20,19 +22,11 @@ class CourseDetailPage extends StatelessWidget {
     required this.id,
   });
 
-  static Route route(String id) {
-    return MaterialPageRoute(
-      settings: const RouteSettings(name: Routes.course),
-      builder: (context) => CourseDetailPage(id: id),
-    );
-  }
-
   final String id;
 
   @override
   Widget build(BuildContext context) {
     final controller = ScrollController();
-    final size = MediaQuery.sizeOf(context);
     return WillPopScope(
       onWillPop: () async {
         return false;
@@ -117,40 +111,6 @@ class CourseDetailPage extends StatelessWidget {
               ),
             ],
           ),
-          bottomNavigationBar:SafeArea(child:  BottomAppBar(
-            child: Row(
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Total Price",
-                      style: textTheme.bodyMedium?.copyWith(color: Colors.grey),
-                    ),
-                    Text(
-                      "₹ 4500",
-                      style: textTheme.titleLarge,
-                    ),
-                  ],
-                ),const
-                Spacer(),
-                SizedBox(
-                  height: AppConstraints.textFieldHeight,
-                  width: size.width * 0.5,
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(backgroundColor:const Color(0xFF313275),),
-                    child: Text(
-                      "Buy Now",
-                      style: textTheme.titleMedium?.copyWith(
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),),
         ),
       ),
     );

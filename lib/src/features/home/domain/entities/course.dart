@@ -14,6 +14,7 @@ class Course extends Equatable {
   final List<String> type;
   final int validity;
   final int price;
+  final String image;
 
   const Course({
     required this.id,
@@ -26,12 +27,14 @@ class Course extends Equatable {
     required this.type,
     required this.validity,
     required this.price,
+    required this.image,
   });
 
   @override
-  String toString() {
-    return 'Course{ id: $id, createdAt: $createdAt, updatedAt: $updatedAt, about: $about, duration: $duration, language: $language, title: $title, type: $type, validity: $validity, price: $price,}';
-  }
+  String toString() => 'Course{ id: $id, createdAt: $createdAt, '
+      'updatedAt: $updatedAt, about: $about, duration: $duration, '
+      'language: $language, title: $title, type: $type, '
+      'validity: $validity, price: $price, image: $image,}';
 
   Course copyWith({
     String? id,
@@ -44,6 +47,7 @@ class Course extends Equatable {
     List<String>? type,
     int? validity,
     int? price,
+    String? image,
   }) {
     return Course(
       id: id ?? this.id,
@@ -56,6 +60,7 @@ class Course extends Equatable {
       type: type ?? this.type,
       validity: validity ?? this.validity,
       price: price ?? this.price,
+      image: image ?? this.image,
     );
   }
 
@@ -71,6 +76,7 @@ class Course extends Equatable {
       'type': type,
       'validity': validity,
       'price': price,
+      'image': image,
     };
   }
 
@@ -87,6 +93,7 @@ class Course extends Equatable {
       type: List<String>.from(map['type']),
       validity: map['validity'],
       price: map['price'],
+      image: map['image'],
     );
   }
 
@@ -102,5 +109,6 @@ class Course extends Equatable {
         type,
         validity,
         price,
+        image,
       ];
 }

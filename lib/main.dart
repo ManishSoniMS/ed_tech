@@ -10,11 +10,15 @@ import 'src/core/config/app_bloc_observer.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  Bloc.observer = AppBlocObserver();
+
   configureDependencies();
+
+  Bloc.observer = AppBlocObserver();
+
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
